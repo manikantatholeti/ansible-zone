@@ -1,6 +1,6 @@
 ---
 -  name: nginx install & start services
-   hosts: webservers
+   hosts: all
    become: true
    tasks:
    -  name: install nginx
