@@ -23,7 +23,7 @@
     - name: download tomcat 10.1.5
       ansible.builtin.get_url:
         url: https://www-eu.apache.org/dist/tomcat/tomcat-10/v10.1.5/bin/apache-tomcat-10.1.5.tar.gz -P /tmp
-        dest: /tmp
+        dest: /tmp/apache-tomcat-10.1.5.tar.gz
        
       
       
