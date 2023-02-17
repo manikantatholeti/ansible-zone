@@ -32,7 +32,7 @@
     - name: create a symbolic link
       ansible.builtin.file:
         src: /opt/tomcat/apache-tomcat-10.1.5
-        dest: opt/tomcat/latest
+        dest: /opt/tomcat/latest
         owner: tomcat
         group: tomcat
         state: link   
