@@ -36,6 +36,13 @@
         owner: tomcat
         group: tomcat
         state: link   
+    - name: chenge permissions
+      ansible.builtin.file:
+        dest: /opt/tomcat
+        recurse: yes  
+        owner: tomcat
+        group: tomcat
+        state: directory     
       
       
 
