@@ -63,9 +63,9 @@
         dest: /opt/tomcat/latest/conf/tomcat-users.xml
         owner: tomcat
         group: tomcat
-    - name: context.xml
+    - name: copy thacontext.xml
       ansible.builtin.copy:
-        src: copy tha context.xml
+        src: context.xml
         dest: /opt/tomcat/latest/webapps/manager/META-INF/context.xml
         owner: tomcat
         group: tomcat
