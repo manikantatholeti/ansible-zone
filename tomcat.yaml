@@ -33,11 +33,11 @@
     #   ansible.builtin.get_url:
     #     url: https://www-eu.apache.org/dist/tomcat/tomcat-10/v10.1.5/bin/apache-tomcat-10.1.5.tar.gz
     #     dest: /tmp/apache-tomcat-10.1.5.tar.gz
-    - name: extract tomcat 10.1.5
-      ansible.builtin.unarchive:
-        src: https://www-eu.apache.org/dist/tomcat/tomcat-10/v10.1.5/bin/apache-tomcat-10.1.5.tar.gzgit
-        dest: "{{ user_home }}"
-        remote_src: yes
+    # - name: extract tomcat 10.1.5
+    #   ansible.builtin.unarchive:
+    #     src: https://www-eu.apache.org/dist/tomcat/tomcat-10/v10.1.5/bin/apache-tomcat-10.1.5.tar.gzgit
+    #     dest: "{{ user_home }}"
+    #     remote_src: yes
     - name: create a symbolic link
       ansible.builtin.file:
         src: /opt/tomcat/apache-tomcat-tomcat_version
