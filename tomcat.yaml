@@ -35,7 +35,7 @@
     #     dest: /tmp/apache-tomcat-10.1.5.tar.gz
     - name: extract tomcat 10.1.5
       ansible.builtin.unarchive:
-        src: https://www-eu.apache.org/dist/tomcat/tomcat-tomcat_major_version/tomcat_version/bin/apache-tomcat-tomcat_version.tar.gz 
+        src: "https://www-eu.apache.org/dist/tomcat/tomcat-tomcat_major_version/tomcat_version/bin/apache-tomcat-tomcat_version.tar.gz" 
         remote_src: yes
     - name: create a symbolic link
       ansible.builtin.file:
