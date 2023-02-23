@@ -45,49 +45,49 @@
         owner: "{{ user_name }}"
         group: "{{ group_name }}"
         state: link   
-    # - name: chenge permissions
-    #   ansible.builtin.file:
-    #     dest: /opt/tomcat
-    #     recurse: yes  
-    #     owner: "{{ user_name }}"
-    #     group: "{{ group_name }}"
-    #     state: directory    
-    # - name: add execute permissions to shell file s
-    #   ansible.builtin.command: sudo sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh'   
-    # - name: creating systemd unit file
-    #   ansible.builtin.copy:
-    #     src: tomcat.sevice
-    #     dest: /etc/systemd/system/tomcat.service
-    #     owner: "{{ user_name }}"
-    #     group: "{{ group_name }}"  
-    # - name: reload deamon and start tomcat
-    #   ansible.builtin.systemd:
-    #     name: "{{ user_name }}"
-    #     daemon_reload: yes
-    #     enabled: yes
-    #     state: started 
-    # - name: copy tha tomcat-user.xml
-    #   ansible.builtin.copy:
-    #     src: tomcat-user.xml
-    #     dest: /opt/tomcat/latest/conf/tomcat-users.xml
-    #     owner: "{{ user_name }}"
-    #     group: "{{ group_name }}"
-    # - name: copy tha context.xml
-    #   ansible.builtin.copy:
-    #     src: context.xml
-    #     dest: /opt/tomcat/latest/webapps/manager/META-INF/context.xml
-    #     owner: "{{ user_name }}"
-    #     group: "{{ group_name }}"
-    # - name: copy tha hostmanger-context.xml
-    #   ansible.builtin.copy: 
-    #     src: hostmangers-context.xml
-    #     dest: /opt/tomcat/latest/webapps/host-manager/META-INF/context.xml
-    #     owner: "{{ user_name }}"
-    #     group: "{{ group_name }}" 
-    # - name: restart tomcat
-    #   ansible.builtin.systemd:
-    #     name: "{{ tomcat_service_name }}"
-    #     state: restarted
+    - name: chenge permissions
+      ansible.builtin.file:
+        dest: /opt/tomcat
+        recurse: yes  
+        owner: "{{ user_name }}"
+        group: "{{ group_name }}"
+        state: directory    
+    - name: add execute permissions to shell file s
+      ansible.builtin.command: sudo sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh'   
+    - name: creating systemd unit file
+      ansible.builtin.copy:
+        src: tomcat.sevice
+        dest: /etc/systemd/system/tomcat.service
+        owner: "{{ user_name }}"
+        group: "{{ group_name }}"  
+    - name: reload deamon and start tomcat
+      ansible.builtin.systemd:
+        name: "{{ user_name }}"
+        daemon_reload: yes
+        enabled: yes
+        state: started 
+    - name: copy tha tomcat-user.xml
+      ansible.builtin.copy:
+        src: tomcat-user.xml
+        dest: /opt/tomcat/latest/conf/tomcat-users.xml
+        owner: "{{ user_name }}"
+        group: "{{ group_name }}"
+    - name: copy tha context.xml
+      ansible.builtin.copy:
+        src: context.xml
+        dest: /opt/tomcat/latest/webapps/manager/META-INF/context.xml
+        owner: "{{ user_name }}"
+        group: "{{ group_name }}"
+    - name: copy tha hostmanger-context.xml
+      ansible.builtin.copy: 
+        src: hostmangers-context.xml
+        dest: /opt/tomcat/latest/webapps/host-manager/META-INF/context.xml
+        owner: "{{ user_name }}"
+        group: "{{ group_name }}" 
+    - name: restart tomcat
+      ansible.builtin.systemd:
+        name: "{{ tomcat_service_name }}"
+        state: restarted
                
   
 
