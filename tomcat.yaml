@@ -33,61 +33,61 @@
     #   ansible.builtin.get_url:
     #     url: https://www-eu.apache.org/dist/tomcat/tomcat-10/v10.1.5/bin/apache-tomcat-10.1.5.tar.gz
     #     dest: /tmp/apache-tomcat-10.1.5.tar.gz
-    # - name: extract tomcat 10.1.5
-    #   ansible.builtin.unarchive:
-    #     src: https://www-eu.apache.org/dist/tomcat/tomcat-10/v10.1.5/bin/apache-tomcat-10.1.5.tar.gzgit
-    #     dest: "{{ user_home }}"
-    #     remote_src: yes
-    - name: create a symbolic link
-      ansible.builtin.file:
-        src: /opt/tomcat/apache-tomcat-tomcat_version
-        dest: /opt/tomcat/latest
-        owner: "{{ user_name }}"
-        group: "{{ group_name }}"
-        state: link   
-    - name: chenge permissions
-      ansible.builtin.file:
-        dest: /opt/tomcat
-        recurse: yes  
-        owner: "{{ user_name }}"
-        group: "{{ group_name }}"
-        state: directory    
-    - name: add execute permissions to shell file s
-      ansible.builtin.command: sudo sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh'   
-    - name: creating systemd unit file
-      ansible.builtin.copy:
-        src: tomcat.sevice
-        dest: /etc/systemd/system/tomcat.service
-        owner: "{{ user_name }}"
-        group: "{{ group_name }}"  
-    - name: reload deamon and start tomcat
-      ansible.builtin.systemd:
-        name: "{{ user_name }}"
-        daemon_reload: yes
-        enabled: yes
-        state: started 
-    - name: copy tha tomcat-user.xml
-      ansible.builtin.copy:
-        src: tomcat-user.xml
-        dest: /opt/tomcat/latest/conf/tomcat-users.xml
-        owner: "{{ user_name }}"
-        group: "{{ group_name }}"
-    - name: copy tha context.xml
-      ansible.builtin.copy:
-        src: context.xml
-        dest: /opt/tomcat/latest/webapps/manager/META-INF/context.xml
-        owner: "{{ user_name }}"
-        group: "{{ group_name }}"
-    - name: copy tha hostmanger-context.xml
-      ansible.builtin.copy: 
-        src: hostmangers-context.xml
-        dest: /opt/tomcat/latest/webapps/host-manager/META-INF/context.xml
-        owner: "{{ user_name }}"
-        group: "{{ group_name }}" 
-    - name: restart tomcat
-      ansible.builtin.systemd:
-        name: "{{ tomcat_service_name }}"
-        state: restarted
+    - name: extract tomcat 10.1.5
+      ansible.builtin.unarchive:
+        src: "https://www-eu.apache.org/dist/tomcat/tomcat-10/v10.1.5/bin/apache-tomcat-10.1.5.tar.gz"
+        remote_src: yes
+        dest: "{{ user_home }}"
+    # - name: create a symbolic link
+    #   ansible.builtin.file:
+    #     src: /opt/tomcat/apache-tomcat-tomcat_version
+    #     dest: /opt/tomcat/latest
+    #     owner: "{{ user_name }}"
+    #     group: "{{ group_name }}"
+    #     state: link   
+    # - name: chenge permissions
+    #   ansible.builtin.file:
+    #     dest: /opt/tomcat
+    #     recurse: yes  
+    #     owner: "{{ user_name }}"
+    #     group: "{{ group_name }}"
+    #     state: directory    
+    # - name: add execute permissions to shell file s
+    #   ansible.builtin.command: sudo sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh'   
+    # - name: creating systemd unit file
+    #   ansible.builtin.copy:
+    #     src: tomcat.sevice
+    #     dest: /etc/systemd/system/tomcat.service
+    #     owner: "{{ user_name }}"
+    #     group: "{{ group_name }}"  
+    # - name: reload deamon and start tomcat
+    #   ansible.builtin.systemd:
+    #     name: "{{ user_name }}"
+    #     daemon_reload: yes
+    #     enabled: yes
+    #     state: started 
+    # - name: copy tha tomcat-user.xml
+    #   ansible.builtin.copy:
+    #     src: tomcat-user.xml
+    #     dest: /opt/tomcat/latest/conf/tomcat-users.xml
+    #     owner: "{{ user_name }}"
+    #     group: "{{ group_name }}"
+    # - name: copy tha context.xml
+    #   ansible.builtin.copy:
+    #     src: context.xml
+    #     dest: /opt/tomcat/latest/webapps/manager/META-INF/context.xml
+    #     owner: "{{ user_name }}"
+    #     group: "{{ group_name }}"
+    # - name: copy tha hostmanger-context.xml
+    #   ansible.builtin.copy: 
+    #     src: hostmangers-context.xml
+    #     dest: /opt/tomcat/latest/webapps/host-manager/META-INF/context.xml
+    #     owner: "{{ user_name }}"
+    #     group: "{{ group_name }}" 
+    # - name: restart tomcat
+    #   ansible.builtin.systemd:
+    #     name: "{{ tomcat_service_name }}"
+    #     state: restarted
                
   
 
