@@ -38,13 +38,13 @@
         src: "https://www-eu.apache.org/dist/tomcat/tomcat-{{tomcat_major_version}}/v{{tomcat_version}}/bin/apache-tomcat-{{tomcat_version}}.tar.gz"
         remote_src: yes
         dest: "{{ user_home }}"
-    # - name: create a symbolic link
-    #   ansible.builtin.file:
-    #     src: /opt/tomcat/apache-tomcat-tomcat_version
-    #     dest: /opt/tomcat/latest
-    #     owner: "{{ user_name }}"
-    #     group: "{{ group_name }}"
-    #     state: link   
+    - name: create a symbolic link
+      ansible.builtin.file:
+        src: /opt/tomcat/apache-tomcat-{{tomcat_version}}
+        dest: /opt/tomcat/latest
+        owner: "{{ user_name }}"
+        group: "{{ group_name }}"
+        state: link   
     # - name: chenge permissions
     #   ansible.builtin.file:
     #     dest: /opt/tomcat
