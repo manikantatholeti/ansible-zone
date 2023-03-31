@@ -1,0 +1,10 @@
+## Register module used to store the output
+## Debug module used to print the output
+---
+-  name: Register module usage
+   hosts: localhost
+   become: true
+   tasks:
+   -  name: Find all txt files in /home/ansible
+      shell: "find /home/ansible -name '*.txt'"
+      register: find_output
