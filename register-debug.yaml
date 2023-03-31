@@ -8,3 +8,6 @@
    -  name: Find all txt files in /home/ansible
       shell: "find /home/ansible -name '*.txt'"
       register: find_output
+   -  name: Print find_output using debug module
+      debug:
+      var: find_output
