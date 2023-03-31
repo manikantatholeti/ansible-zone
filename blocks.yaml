@@ -21,5 +21,5 @@
           msg: "Goodbye!"
         tags:
           - thirdtask
-     when: ansible_facts['os_family'] == "CentOS"
+     when: ansible_facts['os_family'] == "Debian"
      become: yes
