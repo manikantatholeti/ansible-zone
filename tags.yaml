@@ -8,13 +8,16 @@
         msg: "Hello!"
       tags:
         - firsttask
+      when: ansible_facts['os_family'] == "Debian"
 
     - name: No tag example
       debug:
         msg: "How are you?"
+      when: ansible_facts['os_family'] == "Debian"
 
     - name: Goodbye tag example
       debug:
         msg: "Goodbye!"
       tags:
         - thirdtask
+      when: ansible_facts['os_family'] == "Debian"
