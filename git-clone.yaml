@@ -6,7 +6,6 @@
     git: 
       repo: 'https://github.com/manikantatholeti/ansible-zone.git'
       dest: /home/ansible/ansible-zone
-
 ---
 - hosts: node
   become: yes
