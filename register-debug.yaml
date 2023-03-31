@@ -10,4 +10,4 @@
       register: find_output
    -  name: Print find_output using debug module
       debug:
-      var: find_output
+        var: find_output
