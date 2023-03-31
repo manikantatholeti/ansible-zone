@@ -60,7 +60,7 @@
         dest: /etc/systemd/system/tomcat.service
         owner: "{{ user_name }}"
         group: "{{ group_name }}"  
-    - name: reload deamon and start tomcat
+    - name: reload deamon and start tomcat 
       ansible.builtin.systemd:
         name: "{{ user_name }}"
         daemon_reload: yes

@@ -1,8 +1,17 @@
 ---
-- hosts: all
+- hosts: localhost
   become: yes
   tasks:
   - name: cloning git repo
     git: 
-      repo: 'https://github.com/asquarezone/AnsibleZone.git'
-      dest: /home/ansible/AnsibleZone
+      repo: 'https://github.com/manikantatholeti/ansible-zone.git'
+      dest: /home/ansible/
+
+---
+- hosts: node
+  become: yes
+  tasks:
+  - name: cloning git repo
+    git: 
+      repo: 'https://github.com/manikantatholeti/terraform-zone.git'
+      dest: /home/ansible/terraformzone
